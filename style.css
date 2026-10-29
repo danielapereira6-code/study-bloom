@@ -1,9 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 /* Cores e visual do Study Bloom */
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', sans-serif;
     background: #fff5fa;
     color: #45405c;
     text-align: center;
