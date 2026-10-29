@@ -7,7 +7,7 @@ const contadorTotal = document.getElementById("total-tarefas");
 const contadorConcluidas = document.getElementById("tarefas-concluidas");
 const contadorPendentes = document.getElementById("tarefas-pendentes");
 
-let tarefas = [];
+let tarefas = JSON.parse(localStorage.getItem("studyBloomTarefas")) || [];
 
 function atualizarContadores() {
 const total = tarefas.length;
