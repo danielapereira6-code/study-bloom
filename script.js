@@ -9,6 +9,10 @@ const contadorPendentes = document.getElementById("tarefas-pendentes");
 
 let tarefas = JSON.parse(localStorage.getItem("studyBloomTarefas")) || [];
 
+function salvarTarefas() {
+localStorage.setItem("studyBloomTarefas", JSON.stringify(tarefas));
+}
+
 function atualizarContadores() {
 const total = tarefas.length;
 const concluidas = tarefas.filter(tarefa => tarefa.concluida).length;
@@ -54,6 +58,7 @@ botaoConcluir.style.marginTop = "8px";
 
 botaoConcluir.addEventListener("click", () => {
 tarefas[indice].concluida = !tarefas[indice].concluida;
+salvarTarefas();
 mostrarTarefas();
 atualizarContadores();
 });
@@ -81,6 +86,7 @@ nome: nome,
 concluida: false
 });
 
+  salvarTarefas();
 campoTarefa.value = "";
 
 mostrarTarefas();
