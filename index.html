@@ -9,15 +9,71 @@
 </head>
 <body>
 
-    <h1>🌷 Study Bloom</h1>
+<body>
 
-    <p>Floresça no seu ritmo!</p>
+    <header class="topo">
+        <h1>🌷 Study Bloom</h1>
+        <p>Floresça no seu ritmo!</p>
+    </header>
 
-    <h2>Bem-vinda ao seu cantinho de estudos!</h2>
+    <main class="painel">
 
-    <p>Aqui você vai organizar suas tarefas e conquistar seus objetivos.</p>
+        <section class="boas-vindas">
+            <h2>Olá, estudante! 💗</h2>
+            <p>Pequenos passos também fazem você florescer.</p>
+        </section>
 
-    <button>Começar a estudar ✨</button>
+        <section class="resumo">
+            <div class="cartao">
+                <span>📝</span>
+                <h3 id="total-tarefas">0</h3>
+                <p>Tarefas no total</p>
+            </div>
+
+            <div class="cartao">
+                <span>🌟</span>
+                <h3 id="tarefas-concluidas">0</h3>
+                <p>Concluídas</p>
+            </div>
+
+            <div class="cartao">
+                <span>🌱</span>
+                <h3 id="tarefas-pendentes">0</h3>
+                <p>Pendentes</p>
+            </div>
+        </section>
+
+        <section class="tarefas">
+            <h2>♡ Minhas tarefas ♡</h2>
+
+            <form id="form-tarefa">
+                <input
+                    type="text"
+                    id="nova-tarefa"
+                    placeholder="O que você precisa estudar?"
+                    aria-label="Nova tarefa"
+                >
+
+                <button type="submit">+ Adicionar</button>
+            </form>
+
+            <ul id="lista-tarefas">
+                <li class="mensagem-vazia">
+                    Suas tarefas aparecerão aqui! 🌸
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Feito com 💗 e dedicação</p>
+            <p>Study Bloom © 2026</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
+
 
 </body>
 </html>
