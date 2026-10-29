@@ -107,3 +107,63 @@ campoTarefa.focus();
 });
 
 mostrarTarefas();
+// ===== CRONÔMETRO POMODORO =====
+
+const cronometro = document.getElementById("cronometro");
+const botaoIniciar = document.getElementById("iniciar-pomodoro");
+const botaoReiniciar = document.getElementById("reiniciar-pomodoro");
+const mensagemPomodoro = document.getElementById("mensagem-pomodoro");
+
+let segundosRestantes = 25 * 60;
+let intervaloPomodoro = null;
+
+function atualizarCronometro() {
+const minutos = Math.floor(segundosRestantes / 60);
+const segundos = segundosRestantes % 60;
+
+cronometro.textContent =
+String(minutos).padStart(2, "0") + ":" +
+String(segundos).padStart(2, "0");
+}
+
+botaoIniciar.addEventListener("click", () => {
+if (intervaloPomodoro !== null) {
+clearInterval(intervaloPomodoro);
+intervaloPomodoro = null;
+botaoIniciar.textContent = "▶ Iniciar";
+mensagemPomodoro.textContent = "Pausa feita! Descanse um pouquinho. ♡";
+return;
+}
+
+if (segundosRestantes === 0) {
+return;
+}
+
+botaoIniciar.textContent = "⏸ Pausar";
+mensagemPomodoro.textContent = "Concentre-se nos seus estudos! ♡";
+
+intervaloPomodoro = setInterval(() => {
+segundosRestantes--;
+atualizarCronometro();
+
+if (segundosRestantes <= 0) {
+clearInterval(intervaloPomodoro);
+intervaloPomodoro = null;
+botaoIniciar.textContent = "▶ Iniciar";
+mensagemPomodoro.textContent =
+"Parabéns! Hora de fazer uma pausa. 🌷";
+}
+}, 1000);
+});
+
+botaoReiniciar.addEventListener("click", () => {
+clearInterval(intervaloPomodoro);
+intervaloPomodoro = null;
+segundosRestantes = 25 * 60;
+
+atualizarCronometro();
+botaoIniciar.textContent = "▶ Iniciar";
+mensagemPomodoro.textContent = "Um passo de cada vez! ♡";
+});
+
+atualizarCronometro();
