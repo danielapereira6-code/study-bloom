@@ -115,6 +115,8 @@ const botaoReiniciar = document.getElementById("reiniciar-pomodoro");
 const mensagemPomodoro = document.getElementById("mensagem-pomodoro");
 
 let segundosRestantes = 25 * 60;
+let modoDescanso = false;
+const DURACAO_DESCANSO = 5 * 60;
 let intervaloPomodoro = null;
 
 function atualizarCronometro() {
@@ -147,12 +149,30 @@ segundosRestantes--;
 atualizarCronometro();
 
 if (segundosRestantes <= 0) {
-clearInterval(intervaloPomodoro);
-intervaloPomodoro = null;
-botaoIniciar.textContent = "▶ Iniciar";
+if (!modoDescanso) {
+modoDescanso = true;
+segundosRestantes = DURACAO_DESCANSO;
+
+document.getElementById("modo-pomodoro").textContent =
+"Hora de descansar 🌸";
+
 mensagemPomodoro.textContent =
-"Parabéns! Hora de fazer uma pausa. 🌷";
+"Você se dedicou muito! Beba água e relaxe por 5 minutinhos. 💗";
+
+} else {
+modoDescanso = false;
+segundosRestantes = 25 * 60;
+
+document.getElementById("modo-pomodoro").textContent =
+"Hora de estudar 🌱";
+
+mensagemPomodoro.textContent =
+"Pausa concluída! Você consegue continuar. ✨";
 }
+
+atualizarCronometro();
+}
+  
 }, 1000);
 });
 
@@ -160,6 +180,7 @@ botaoReiniciar.addEventListener("click", () => {
 clearInterval(intervaloPomodoro);
 intervaloPomodoro = null;
 segundosRestantes = 25 * 60;
+modoDescanso = falso;
 
 atualizarCronometro();
 botaoIniciar.textContent = "▶ Iniciar";
