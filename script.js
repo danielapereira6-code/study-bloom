@@ -65,6 +65,19 @@ atualizarContadores();
 
 item.appendChild(texto);
 item.appendChild(botaoConcluir);
+
+const botaoExcluir = document.createElement("button");
+botaoExcluir.textContent = "🗑️ Excluir";
+botaoExcluir.style.marginLeft = "10px";
+botaoExcluir.style.marginTop = "8px";
+
+botaoExcluir.addEventListener("click", () => {
+tarefas.splice(indice, 1);
+salvarTarefas();
+mostrarTarefas();
+});
+
+item.appendChild(botaoExcluir);
 listaTarefas.appendChild(item);
 });
 
