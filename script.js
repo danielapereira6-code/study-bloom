@@ -114,7 +114,7 @@ const botaoIniciar = document.getElementById("iniciar-pomodoro");
 const botaoReiniciar = document.getElementById("reiniciar-pomodoro");
 const mensagemPomodoro = document.getElementById("mensagem-pomodoro");
 
-let segundosRestantes = 25 * 60;
+let segundosRestantes = 10;
 let modoDescanso = false;
 const DURACAO_DESCANSO = 5 * 60;
 let intervaloPomodoro = null;
