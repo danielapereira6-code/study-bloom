@@ -50,3 +50,129 @@ button:hover {
     transform: scale(1.05);
 }
 
+
+/* Painel principal */
+
+.topo {
+    background: linear-gradient(135deg, #e9d9ff, #ffdcec);
+    padding: 25px 15px;
+}
+
+.topo h1 {
+    background: transparent;
+    padding: 10px;
+}
+
+.topo p {
+    margin-bottom: 0;
+}
+
+.painel {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.boas-vindas {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px #e8cde633;
+}
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.cartao {
+    background: #ffffff;
+    padding: 20px 10px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px #e8cde633;
+}
+
+.cartao span {
+    font-size: 28px;
+}
+
+.cartao h3 {
+    color: #a16db5;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.cartao p {
+    font-size: 14px;
+    padding: 0;
+}
+
+.tarefas {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px #e8cde633;
+}
+
+#form-tarefa {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#nova-tarefa {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #e5c9f1;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+#lista-tarefas {
+    padding: 0;
+    list-style: none;
+}
+
+.mensagem-vazia {
+    color: #9b8da5;
+    padding: 15px 0;
+}
+
+footer {
+    margin-top: 35px;
+    padding: 15px;
+    color: #998aa3;
+    font-size: 13px;
+}
+
+/* Ajuste para celulares */
+
+@media (max-width: 500px) {
+    .resumo {
+        gap: 8px;
+    }
+
+    .cartao {
+        padding: 15px 5px;
+    }
+
+    .cartao p {
+        font-size: 12px;
+    }
+
+    .tarefas {
+        padding: 16px;
+    }
+
+    #form-tarefa {
+        flex-direction: column;
+    }
+
+    #form-tarefa button {
+        width: 100%;
+    }
+}
