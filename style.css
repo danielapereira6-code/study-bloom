@@ -1055,3 +1055,20 @@ small,
     background: #ead5f5;
     color: #514064;
 }
+
+/* ===== LOGO STUDY BLOOM BY DANI 🌸 ===== */
+
+.topo {
+    padding: 12px 16px;
+    overflow: hidden;
+}
+
+.logo-bloom {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+    margin: 0 auto;
+}
