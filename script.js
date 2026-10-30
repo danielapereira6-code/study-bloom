@@ -28,6 +28,7 @@ contadorPendentes.textContent = pendentes;
 
 barraProgresso.style.width = porcentagem + "%";
 textoProgresso.textContent = porcentagem + "% concluído";
+  atualizarJardim();
 }
 
 function mostrarTarefas() {
@@ -434,3 +435,41 @@ botoesMenu.forEach((botao) => {
         });
     });
 });
+
+/* 🌸 Jardim de Conquistas */
+function atualizarJardim() {
+    const jardim = document.getElementById("jardim-flores");
+    const mensagem = document.getElementById("mensagem-jardim");
+    const concluidas = document.getElementById("tarefas-concluidas");
+
+    if (!jardim || !mensagem || !concluidas) return;
+
+    const total = Number(concluidas.textContent) || 0;
+
+    const flores = ["🌷", "🌸", "🌼", "🌻", "🪻", "🌺", "💐"];
+    const quantidade = Math.min(total, 30);
+
+    jardim.innerHTML = "";
+
+    if (quantidade === 0) {
+        jardim.innerHTML = '<span class="flor-jardim">🌱</span>';
+        mensagem.textContent =
+            "Sua primeira conquista será a semente do seu jardim! 💗";
+        return;
+    }
+
+    for (let i = 0; i < quantidade; i++) {
+        const flor = document.createElement("span");
+        flor.className = "flor-jardim";
+        flor.textContent = flores[i % flores.length];
+        flor.style.animationDelay = `${i * 0.06}s`;
+        jardim.appendChild(flor);
+    }
+
+    if (total === 1) {
+        mensagem.textContent = "Sua primeira flor floresceu! Continue assim! 🌷";
+    } else {
+        mensagem.textContent =
+            `Seu jardim tem ${total} ${total === 1 ? "conquista" : "conquistas"} florescendo! 🌸💗`;
+    }
+}
