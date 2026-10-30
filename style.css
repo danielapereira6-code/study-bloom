@@ -1,12 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 /* Cores e visual do Study Bloom */
 
+
 body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
-    background: #fff5fa;
+    background: linear-gradient(
+        135deg,
+        #fff5fa 0%,
+        #f9efff 50%,
+        #fff0f7 100%
+    );
+    background-attachment: fixed;
     color: #45405c;
     text-align: center;
+    min-height: 100vh;
 }
 
 /* Cabeçalho */
@@ -606,4 +614,184 @@ body {
     body {
         padding-bottom: 110px;
     }
+}
+
+/* ===== CARTÕES DO JARDIM ENCANTADO 🌷 ===== */
+
+.boas-vindas,
+.cartao,
+.progresso,
+.calendario,
+.pomodoro,
+.tarefas {
+    border: 1px solid rgba(226, 195, 235, 0.75);
+    border-radius: 24px;
+    box-shadow: 0 8px 24px rgba(130, 91, 157, 0.10);
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.boas-vindas,
+.cartao,
+.progresso,
+.calendario,
+.pomodoro,
+.tarefas {
+    background-color: rgba(255, 255, 255, 0.88);
+}
+
+/* ===== BRILHO SUAVE DE FLORES 🌷 ===== */
+
+@media (hover: hover) {
+    .boas-vindas:hover,
+    .cartao:hover,
+    .progresso:hover,
+    .calendario:hover,
+    .pomodoro:hover,
+    .tarefas:hover {
+        box-shadow: 0 12px 30px rgba(130, 91, 157, 0.16);
+        border-color: #d9b8e8;
+    }
+}
+
+/* ===== BOTÕES FLORIDOS 🌸 ===== */
+
+button {
+    border-radius: 16px;
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:focus-visible {
+    outline: 3px solid #d9b8e8;
+    outline-offset: 3px;
+}
+
+/* ===== TÍTULOS ENCANTADOS 🌷 ===== */
+
+h1,
+h2 {
+    color: #7654a8;
+    letter-spacing: 0.3px;
+}
+
+h1 {
+    text-shadow: 0 2px 10px rgba(190, 151, 214, 0.18);
+}
+
+h2 {
+    text-shadow: 0 1px 5px rgba(190, 151, 214, 0.12);
+}
+
+/* ===== PROGRESSO FLORIDO 🌸 ===== */
+
+.progresso {
+    overflow: hidden;
+}
+
+.progresso progress {
+    width: 100%;
+    height: 14px;
+    border: none;
+    border-radius: 999px;
+    overflow: hidden;
+    accent-color: #b58ad9;
+}
+
+.progresso progress::-webkit-progress-bar {
+    background-color: #f3e5f6;
+    border-radius: 999px;
+}
+
+.progresso progress::-webkit-progress-value {
+    background: linear-gradient(90deg, #e8a9d1, #b58ad9);
+    border-radius: 999px;
+}
+
+.progresso progress::-moz-progress-bar {
+    background: linear-gradient(90deg, #e8a9d1, #b58ad9);
+    border-radius: 999px;
+}
+
+/* ===== LISTA DE TAREFAS FLORIDA 🌷 ===== */
+
+#lista-tarefas li {
+    margin: 10px 0;
+    padding: 14px 16px;
+    border: 1px solid #f0dff2;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #fffafd, #fcf5ff);
+    box-shadow: 0 4px 12px rgba(130, 91, 157, 0.07);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#lista-tarefas li:has(input[type="checkbox"]:checked) {
+    background: #f8f0fa;
+    border-color: #e4d1ed;
+}
+
+/* ===== CALENDÁRIO ENCANTADO 🌷 ===== */
+
+.dias-calendario button {
+    border-radius: 12px;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.dias-calendario button:hover {
+    background-color: #f7e8fb;
+    color: #7654a8;
+}
+
+.dias-calendario button.selecionado {
+    background: linear-gradient(135deg, #cda8e8, #e9b5d7);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(130, 91, 157, 0.18);
+}
+
+/* ===== CANTINHO DO FOCO 🌷 ===== */
+
+.pomodoro {
+    background: linear-gradient(145deg, #fffafd, #f8efff);
+}
+
+.pomodoro h2 {
+    color: #8c65b5;
+}
+
+.pomodoro button {
+    box-shadow: 0 4px 12px rgba(130, 91, 157, 0.10);
+}
+
+.pomodoro button:active {
+    box-shadow: 0 2px 6px rgba(130, 91, 157, 0.12);
+}
+
+/* ===== FLORES DECORATIVAS 🌸 ===== */
+
+.boas-vindas h2::before,
+.progresso h2::before,
+.calendario h2::before,
+.pomodoro h2::before,
+.tarefas h2::before {
+    content: "✿ ";
+    color: #d99acb;
+    font-size: 0.9em;
+}
+
+.boas-vindas h2::after,
+.progresso h2::after,
+.calendario h2::after,
+.pomodoro h2::after,
+.tarefas h2::after {
+    content: " ✿";
+    color: #b99adf;
+    font-size: 0.9em;
 }
