@@ -1135,3 +1135,52 @@ small,
         font-size: 30px;
     }
 }
+
+/* Jardim de Conquistas — ilustração delicada */
+.jardim-conquistas {
+    width: 100%;
+    max-width: 420px;
+    margin: 24px auto;
+    padding: 20px 16px;
+    box-sizing: border-box;
+    text-align: center;
+    background: linear-gradient(145deg, #fff8fc, #f7efff);
+    border: 1px solid #efd8ef;
+    border-radius: 22px;
+    box-shadow: 0 6px 18px rgba(190, 145, 190, 0.12);
+}
+
+.jardim-conquistas h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #a77bb5;
+}
+
+.imagem-jardim {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 135px;
+    object-fit: contain;
+    margin: 12px auto;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.jardim-conquistas p {
+    margin-bottom: 0;
+    color: #927a9b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+    .jardim-conquistas {
+        padding: 16px 12px;
+        margin: 18px auto;
+    }
+
+    .imagem-jardim {
+        max-width: 190px;
+        height: 115px;
+    }
+}
