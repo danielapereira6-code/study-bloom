@@ -1215,8 +1215,18 @@ animation: jardimFloresce 0.9s ease-out both;
 }
 
 .imagem-jardim {
-animation: florFlutua 4s ease-in-out infinite;
-transform-origin: center bottom;
+    animation: florFlutua 2s ease-in-out infinite !important;
+    transform-origin: center bottom;
+    outline: 3px solid hotpink;
+}
+
+@keyframes florFlutua {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
