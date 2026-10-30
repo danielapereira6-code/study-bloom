@@ -1072,3 +1072,66 @@ small,
     object-fit: contain;
     margin: 0 auto;
 }
+
+/* 🌸 Jardim de Conquistas */
+.jardim-conquistas {
+    margin: 25px 0;
+    padding: 25px 20px;
+    text-align: center;
+    background: linear-gradient(145deg, #fff7fb, #f2eaff);
+    border: 1px solid #f0d8f0;
+    border-radius: 24px;
+    box-shadow: 0 8px 22px rgba(190, 150, 205, 0.12);
+}
+
+.jardim-conquistas h2 {
+    color: #a77bb7;
+    margin-bottom: 10px;
+}
+
+.jardim-conquistas > p {
+    color: #9b83a5;
+    font-size: 14px;
+}
+
+.jardim-flores {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 14px;
+    min-height: 100px;
+    margin: 22px 0 14px;
+    padding: 18px 12px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+}
+
+.flor-jardim {
+    display: inline-block;
+    font-size: 35px;
+    animation: florNasce 0.6s ease both;
+    filter: drop-shadow(0 3px 3px rgba(180, 130, 190, 0.15));
+}
+
+@keyframes florNasce {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .jardim-conquistas {
+        padding: 20px 14px;
+    }
+
+    .flor-jardim {
+        font-size: 30px;
+    }
+}
