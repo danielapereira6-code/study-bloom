@@ -388,3 +388,125 @@ font-size: 15px;
         font-size: 13px;
     }
 }
+
+/* ===== CORREÇÃO DO CALENDÁRIO ===== */
+
+.calendario {
+    display: block !important;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff0f7;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 18px;
+    box-shadow: 0 4px 10px #e9d9ff;
+}
+
+.controles-calendario {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 10px;
+    width: 100%;
+}
+
+.controles-calendario button {
+    display: inline-flex !important;
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    padding: 0 !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px !important;
+    font-size: 18px !important;
+}
+
+.controles-calendario h3 {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+    margin: 0;
+}
+
+.dias-semana,
+.dias-calendario {
+    display: grid !important;
+    grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+    gap: 5px !important;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.dias-semana span {
+    display: block !important;
+    min-width: 0;
+    font-size: 12px;
+    padding: 8px 0;
+    color: #7654a8;
+    font-weight: bold;
+}
+
+.dias-calendario button {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    border: 1px solid #eadcf8;
+    border-radius: 10px !important;
+    background: white;
+    color: #7654a8;
+    font-size: 14px !important;
+}
+
+.dias-calendario button.selecionado {
+    background: #d9c2f0 !important;
+    border: 2px solid #a985d6 !important;
+}
+
+.dias-calendario button.hoje {
+    box-shadow: inset 0 0 0 2px #e9a8d4;
+}
+
+.dias-calendario span {
+    min-width: 0;
+}
+
+.planejamento-dia {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#tarefa-calendario {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#adicionar-calendario {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+@media (max-width: 400px) {
+    .calendario {
+        padding: 12px;
+    }
+
+    .dias-semana,
+    .dias-calendario {
+        gap: 3px !important;
+    }
+
+    .dias-calendario button {
+        height: 36px !important;
+        font-size: 12px !important;
+    }
+}
