@@ -510,3 +510,100 @@ font-size: 15px;
         font-size: 12px !important;
     }
 }
+
+/* ===== NAVEGAÇÃO DO JARDIM ENCANTADO 🌷 ===== */
+
+.aba-conteudo {
+    display: none;
+}
+
+.aba-conteudo.ativa {
+    display: block;
+    animation: florescer 0.3s ease;
+}
+
+@keyframes florescer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Menu fixo inferior */
+
+.menu-inferior {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 8px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255, 250, 253, 0.97);
+    border-top: 1px solid #f0d8ed;
+    box-shadow: 0 -4px 18px #a985d61a;
+    z-index: 1000;
+}
+
+.item-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 2px;
+    border-radius: 16px;
+    background: transparent;
+    color: #998aa3;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    transform: none;
+}
+
+.item-menu:hover {
+    background: #fff0f7;
+    color: #a16db5;
+    transform: none;
+}
+
+.item-menu.ativo {
+    background: #f7e7f8;
+    color: #7654a8;
+}
+
+.icone-menu {
+    font-size: 21px;
+    line-height: 1.2;
+}
+
+/* Espaço para o menu não cobrir o conteúdo */
+
+body {
+    padding-bottom: 90px;
+}
+
+@media (min-width: 700px) {
+    .menu-inferior {
+        max-width: 520px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 16px;
+        border: 1px solid #f0d8ed;
+        border-radius: 24px;
+        padding: 10px;
+    }
+
+    body {
+        padding-bottom: 110px;
+    }
+}
