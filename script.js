@@ -187,7 +187,7 @@ botaoReiniciar.addEventListener("click", () => {
 clearInterval(intervaloPomodoro);
 intervaloPomodoro = null;
 segundosRestantes = 25 * 60;
-modoDescanso = falso;
+modoDescanso = false;
 
 atualizarCronometro();
 botaoIniciar.textContent = "▶ Iniciar";
