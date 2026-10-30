@@ -444,7 +444,7 @@ function atualizarJardim() {
 
     if (!jardim || !mensagem || !concluidas) return;
 
-    const total = Number(concluidas.textContent) || 0;
+    const total = tarefas.filter(tarefa => tarefa.concluida).length;
 
     const flores = ["🌷", "🌸", "🌼", "🌻", "🪻", "🌺", "💐"];
     const quantidade = Math.min(total, 30);
