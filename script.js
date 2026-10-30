@@ -6,7 +6,8 @@ const listaTarefas = document.getElementById("lista-tarefas");
 const contadorTotal = document.getElementById("total-tarefas");
 const contadorConcluidas = document.getElementById("tarefas-concluidas");
 const contadorPendentes = document.getElementById("tarefas-pendentes");
-
+const barraProgresso = document.getElementById("barra-progresso");
+const textoProgresso = document.getElementById("texto-progresso");
 let tarefas = JSON.parse(localStorage.getItem("studyBloomTarefas")) || [];
 
 function salvarTarefas() {
@@ -21,6 +22,12 @@ const pendentes = total - concluidas;
 contadorTotal.textContent = total;
 contadorConcluidas.textContent = concluidas;
 contadorPendentes.textContent = pendentes;
+  const porcentagem = total === 0
+    ? 0
+    : Math.round((concluidas / total) * 100);
+
+barraProgresso.style.width = porcentagem + "%";
+textoProgresso.textContent = porcentagem + "% concluído";
 }
 
 function mostrarTarefas() {
