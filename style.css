@@ -1184,6 +1184,48 @@ small,
         height: 115px;
     }
 }
+* 🌸 Animações delicadas do Jardim de Conquistas */
+
+@keyframes jardimFloresce {
+from {
+opacity: 0;
+transform: translateY(12px) scale(0.98);
+}
+to {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+
+@keyframes florFlutua {
+0%, 100% {
+transform: translateY(0);
+}
+50% {
+transform: translateY(-5px);
+}
+}
+
+.jardim-conquistas {
+animation: jardimFloresce 0.8s ease-out both;
+}
+
+.jardim-conquistas h2 {
+animation: jardimFloresce 0.9s ease-out both;
+}
+
+.imagem-jardim {
+animation: florFlutua 4s ease-in-out infinite;
+transform-origin: center bottom;
+}
+
+@media (prefers-reduced-motion: reduce) {
+.jardim-conquistas,
+.jardim-conquistas h2,
+.imagem-jardim {
+animation: none;
+}
+}
 
 /* 🤖 Link do Assistente IA no menu */
 a.item-menu {
