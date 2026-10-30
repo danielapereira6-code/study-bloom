@@ -195,3 +195,209 @@ mensagemPomodoro.textContent = "Um passo de cada vez! ♡";
 });
 
 atualizarCronometro();
+
+ 
+// ===== CALENDÁRIO DE ESTUDOS 🌷 =====
+
+const tituloMesAno = document.getElementById("mes-ano");
+const diasCalendario = document.getElementById("dias-calendario");
+const botaoMesAnterior = document.getElementById("mes-anterior");
+const botaoProximoMes = document.getElementById("proximo-mes");
+const dataSelecionadaTexto = document.getElementById("data-selecionada");
+const campoEstudo = document.getElementById("tarefa-calendario");
+const botaoAdicionarEstudo = document.getElementById("adicionar-calendario");
+const listaEstudos = document.getElementById("lista-calendario");
+
+let estudosCalendario = JSON.parse(
+    localStorage.getItem("studyBloomCalendario")
+) || {};
+
+let dataSelecionada = new Date();
+dataSelecionada.setHours(0, 0, 0, 0);
+
+let mesAtual = dataSelecionada.getMonth();
+let anoAtual = dataSelecionada.getFullYear();
+
+function criarChaveData(data) {
+    const ano = data.getFullYear();
+    const mes = String(data.getMonth() + 1).padStart(2, "0");
+    const dia = String(data.getDate()).padStart(2, "0");
+
+    return `${ano}-${mes}-${dia}`;
+}
+
+function salvarEstudosCalendario() {
+    localStorage.setItem(
+        "studyBloomCalendario",
+        JSON.stringify(estudosCalendario)
+    );
+}
+
+function mostrarCalendario() {
+    diasCalendario.innerHTML = "";
+
+    const nomesMeses = [
+        "janeiro", "fevereiro", "março", "abril",
+        "maio", "junho", "julho", "agosto",
+        "setembro", "outubro", "novembro", "dezembro"
+    ];
+
+    tituloMesAno.textContent =
+        `${nomesMeses[mesAtual]} de ${anoAtual}`;
+
+    const primeiroDia = new Date(anoAtual, mesAtual, 1);
+    const ultimoDia = new Date(anoAtual, mesAtual + 1, 0);
+    const hoje = criarChaveData(new Date());
+
+    // Espaços antes do primeiro dia do mês
+    for (let i = 0; i < primeiroDia.getDay(); i++) {
+        const espaco = document.createElement("span");
+        diasCalendario.appendChild(espaco);
+    }
+
+    // Criar os botões dos dias
+    for (let dia = 1; dia <= ultimoDia.getDate(); dia++) {
+        const data = new Date(anoAtual, mesAtual, dia);
+        const chave = criarChaveData(data);
+        const botao = document.createElement("button");
+
+        botao.type = "button";
+        botao.textContent = dia;
+        botao.setAttribute("aria-label", `Dia ${dia}`);
+
+        if (chave === hoje) {
+            botao.classList.add("hoje");
+        }
+
+        if (chave === criarChaveData(dataSelecionada)) {
+            botao.classList.add("selecionado");
+        }
+
+        if (estudosCalendario[chave]?.length > 0) {
+            botao.title = "Este dia tem estudos planejados 🌸";
+            botao.classList.add("tem-estudo");
+        }
+
+        botao.addEventListener("click", () => {
+            dataSelecionada = data;
+            mostrarCalendario();
+            mostrarEstudosDoDia();
+        });
+
+        diasCalendario.appendChild(botao);
+    }
+}
+
+function mostrarEstudosDoDia() {
+    const chave = criarChaveData(dataSelecionada);
+
+    dataSelecionadaTexto.textContent =
+        dataSelecionada.toLocaleDateString("pt-BR", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+    listaEstudos.innerHTML = "";
+
+    const estudos = estudosCalendario[chave] || [];
+
+    if (estudos.length === 0) {
+        const itemVazio = document.createElement("li");
+        itemVazio.textContent = "Nenhum estudo planejado para este dia 🌱";
+        listaEstudos.appendChild(itemVazio);
+        return;
+    }
+
+    estudos.forEach((estudo, indice) => {
+        const item = document.createElement("li");
+        const texto = document.createElement("span");
+        const botaoExcluir = document.createElement("button");
+
+        texto.textContent = estudo;
+        botaoExcluir.textContent = " 🗑️";
+        botaoExcluir.type = "button";
+        botaoExcluir.setAttribute("aria-label", "Excluir estudo");
+
+        botaoExcluir.addEventListener("click", () => {
+            estudosCalendario[chave].splice(indice, 1);
+
+            if (estudosCalendario[chave].length === 0) {
+                delete estudosCalendario[chave];
+            }
+
+            salvarEstudosCalendario();
+            mostrarCalendario();
+            mostrarEstudosDoDia();
+        });
+
+        item.appendChild(texto);
+        item.appendChild(botaoExcluir);
+        listaEstudos.appendChild(item);
+    });
+}
+
+// Voltar um mês
+botaoMesAnterior.addEventListener("click", () => {
+    mesAtual--;
+
+    if (mesAtual < 0) {
+        mesAtual = 11;
+        anoAtual--;
+    }
+
+    dataSelecionada = new Date(anoAtual, mesAtual, 1);
+    mostrarCalendario();
+    mostrarEstudosDoDia();
+});
+
+// Avançar um mês
+botaoProximoMes.addEventListener("click", () => {
+    mesAtual++;
+
+    if (mesAtual > 11) {
+        mesAtual = 0;
+        anoAtual++;
+    }
+
+    dataSelecionada = new Date(anoAtual, mesAtual, 1);
+    mostrarCalendario();
+    mostrarEstudosDoDia();
+});
+
+// Adicionar um estudo à data selecionada
+botaoAdicionarEstudo.addEventListener("click", () => {
+    const nomeEstudo = campoEstudo.value.trim();
+
+    if (nomeEstudo === "") {
+        campoEstudo.focus();
+        return;
+    }
+
+    const chave = criarChaveData(dataSelecionada);
+
+    if (!estudosCalendario[chave]) {
+        estudosCalendario[chave] = [];
+    }
+
+    estudosCalendario[chave].push(nomeEstudo);
+
+    salvarEstudosCalendario();
+    campoEstudo.value = "";
+    mostrarCalendario();
+    mostrarEstudosDoDia();
+    campoEstudo.focus();
+});
+
+// Permitir adicionar com a tecla Enter
+campoEstudo.addEventListener("keydown", (evento) => {
+    if (evento.key === "Enter") {
+        evento.preventDefault();
+        botaoAdicionarEstudo.click();
+    }
+});
+
+// Mostrar o calendário ao abrir a página
+mostrarCalendario();
+mostrarEstudosDoDia();
