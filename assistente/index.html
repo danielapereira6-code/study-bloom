@@ -3,36 +3,74 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#B9659A">
   <title>Assistente de Estudos | Study Bloom</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <main class="chat-container">
-    <a class="voltar" href="../index.html">← Voltar ao Study Bloom</a>
+  <div class="decor" aria-hidden="true">
+    <span class="flower f1">✿</span>
+    <span class="flower f2">✿</span>
+    <span class="flower f3">✿</span>
+    <span class="flower f4">✿</span>
+  </div>
 
-    <h1>🌸 Assistente de Estudos</h1>
-    <p class="subtitulo">Vamos aprender juntos, um passo de cada vez.</p>
+  <div class="app">
+    <header class="cabecalho">
+      <a class="marca" href="../index.html">
+        <span class="icone-flor">✿</span>
+        <span>
+          <strong>Study Bloom</strong>
+          <small>Seu companheiro de estudos com IA</small>
+        </span>
+      </a>
+      <button id="novo-chat" class="botao-icone" type="button" aria-label="Nova conversa" title="Nova conversa">↺</button>
+    </header>
 
-    <section id="mensagens" class="mensagens" aria-live="polite">
-      <div class="mensagem ia">
-        Olá! 🌷 Que matéria você quer estudar hoje?
-      </div>
-    </section>
+    <main id="scroller">
+      <section id="boas-vindas" class="boas-vindas">
+        <div class="icone-boas-vindas">✧</div>
+        <h1>O que vamos aprender hoje?</h1>
+        <p>Pergunte sobre uma matéria, peça um resumo ou prepare uma sessão de estudos tranquila.</p>
 
-    <form id="form-chat">
-      <input
-        id="pergunta"
-        type="text"
-        placeholder="Digite sua dúvida..."
-        autocomplete="off"
-        required
-      >
-      <button type="submit">Enviar</button>
-    </form>
+        <div class="sugestoes">
+          <button class="sugestao" type="button" data-prompt="Explique a fotossíntese de forma fácil, com um exemplo do dia a dia.">
+            <span class="icone-sugestao rosa">✦</span>
+            <span><strong>Explicar um conceito</strong><small>Fotossíntese de forma fácil</small></span>
+          </button>
+          <button class="sugestao" type="button" data-prompt="Faça um resumo das principais causas da Primeira Guerra Mundial em 5 pontos.">
+            <span class="icone-sugestao lilas">☷</span>
+            <span><strong>Resumir uma matéria</strong><small>Aprender os pontos principais</small></span>
+          </button>
+          <button class="sugestao" type="button" data-prompt="Ajude-me a organizar uma sessão de estudo de duas horas com pausas.">
+            <span class="icone-sugestao lilas">◷</span>
+            <span><strong>Organizar os estudos</strong><small>Planejar uma sessão com pausas</small></span>
+          </button>
+          <button class="sugestao" type="button" data-prompt="Faça-me 5 perguntas curtas sobre o ciclo da água, uma de cada vez, e corrija as minhas respostas.">
+            <span class="icone-sugestao rosa">?</span>
+            <span><strong>Testar conhecimentos</strong><small>Praticar com perguntas</small></span>
+          </button>
+        </div>
+      </section>
 
-    <p class="aviso">A IA pode cometer erros. Confira informações importantes com seus materiais de estudo.</p>
-  </main>
+      <section id="mensagens" class="mensagens" aria-live="polite"></section>
+    </main>
+
+    <footer class="rodape">
+      <form id="form-chat">
+        <label class="visualmente-oculto" for="pergunta">A tua pergunta</label>
+        <textarea id="pergunta" rows="1" placeholder="Pergunte qualquer coisa ao Study Bloom..." required></textarea>
+        <button id="enviar" type="submit" aria-label="Enviar pergunta">➤</button>
+      </form>
+      <p class="aviso">🌷 A IA pode cometer erros. Confirme informações importantes com os seus materiais de estudo.</p>
+    </footer>
+  </div>
 
   <script src="https://js.puter.com/v2/"></script>
   <script src="app.js"></script>
