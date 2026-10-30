@@ -211,3 +211,39 @@ color: #998aa3;
 margin-top: 20px;
 font-size: 15px;
 }
+
+/* ===== BARRA DE PROGRESSO ===== */
+
+.progresso {
+    background: #fff0f7;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 18px;
+    box-shadow: 0 4px 10px #e9d9ff;
+}
+
+.progresso h2 {
+    color: #7654a8;
+    margin-top: 0;
+}
+
+#texto-progresso {
+    color: #7654a8;
+    font-weight: bold;
+}
+
+.barra-fundo {
+    width: 100%;
+    height: 22px;
+    background: #eadcf8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+#barra-progresso {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #e9a8d4, #b99ae8);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
