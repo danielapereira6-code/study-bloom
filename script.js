@@ -437,39 +437,41 @@ botoesMenu.forEach((botao) => {
 });
 
 /* 🌸 Jardim de Conquistas */
+
 function atualizarJardim() {
-    const jardim = document.getElementById("jardim-flores");
+    const imagem = document.getElementById("imagem-jardim");
     const mensagem = document.getElementById("mensagem-jardim");
-    const concluidas = document.getElementById("tarefas-concluidas");
 
-    if (!jardim || !mensagem || !concluidas) return;
+    if (!imagem || !mensagem) return;
 
-    const total = tarefas.filter(tarefa => tarefa.concluida).length;
+    const total = tarefas.length;
+    const concluidas = tarefas.filter(tarefa => tarefa.concluida).length;
 
-    const flores = ["🌷", "🌸", "🌼", "🌻", "🪻", "🌺", "💐"];
-    const quantidade = Math.min(total, 30);
+    const porcentagem = total === 0
+        ? 0
+        : Math.round((concluidas / total) * 100);
 
-    jardim.innerHTML = "";
+    let estagio;
+    let descricao;
 
-    if (quantidade === 0) {
-        jardim.innerHTML = '<span class="flor-jardim">🌱</span>';
-        mensagem.textContent =
-            "Sua primeira conquista será a semente do seu jardim! 💗";
-        return;
-    }
-
-    for (let i = 0; i < quantidade; i++) {
-        const flor = document.createElement("span");
-        flor.className = "flor-jardim";
-        flor.textContent = flores[i % flores.length];
-        flor.style.animationDelay = `${i * 0.06}s`;
-        jardim.appendChild(flor);
-    }
-
-    if (total === 1) {
-        mensagem.textContent = "Sua primeira flor floresceu! Continue assim! 🌷";
+    if (porcentagem <= 25) {
+        estagio = 0;
+        descricao = "Seu jardim está começando a florescer.";
+    } else if (porcentagem <= 50) {
+        estagio = 1;
+        descricao = "Novas flores estão surgindo no seu jardim.";
+    } else if (porcentagem <= 75) {
+        estagio = 2;
+        descricao = "Seu jardim está cada vez mais florido.";
     } else {
-        mensagem.textContent =
-            `Seu jardim tem ${total} ${total === 1 ? "conquista" : "conquistas"} florescendo! 🌸💗`;
+        estagio = 3;
+        descricao = porcentagem === 100
+            ? "Seu jardim floresceu por completo!"
+            : "Seu jardim está quase completamente florido.";
     }
+
+    imagem.src = `jardim-${estagio}.png.jpg`;
+    imagem.alt = descricao;
+    mensagem.textContent = descricao;
 }
+
