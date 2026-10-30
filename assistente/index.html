@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assistente de Estudos | Study Bloom</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="chat-container">
+    <a class="voltar" href="../index.html">← Voltar ao Study Bloom</a>
+
+    <h1>🌸 Assistente de Estudos</h1>
+    <p class="subtitulo">Vamos aprender juntos, um passo de cada vez.</p>
+
+    <section id="mensagens" class="mensagens" aria-live="polite">
+      <div class="mensagem ia">
+        Olá! 🌷 Que matéria você quer estudar hoje?
+      </div>
+    </section>
+
+    <form id="form-chat">
+      <input
+        id="pergunta"
+        type="text"
+        placeholder="Digite sua dúvida..."
+        autocomplete="off"
+        required
+      >
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p class="aviso">A IA pode cometer erros. Confira informações importantes com seus materiais de estudo.</p>
+  </main>
+
+  <script src="https://js.puter.com/v2/"></script>
+  <script src="app.js"></script>
+</body>
+</html>
