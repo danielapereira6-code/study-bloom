@@ -401,3 +401,36 @@ campoEstudo.addEventListener("keydown", (evento) => {
 // Mostrar o calendário ao abrir a página
 mostrarCalendario();
 mostrarEstudosDoDia();
+
+/* ===== NAVEGAÇÃO ENTRE ABAS 🌷 ===== */
+
+const botoesMenu = document.querySelectorAll(".item-menu");
+const abasConteudo = document.querySelectorAll(".aba-conteudo");
+
+botoesMenu.forEach((botao) => {
+    botao.addEventListener("click", () => {
+        const abaDestino = botao.dataset.aba;
+
+        abasConteudo.forEach((aba) => {
+            aba.classList.toggle(
+                "ativa",
+                aba.id === abaDestino
+            );
+        });
+
+        botoesMenu.forEach((item) => {
+            const selecionado = item === botao;
+
+            item.classList.toggle("ativo", selecionado);
+            item.setAttribute(
+                "aria-current",
+                selecionado ? "page" : "false"
+            );
+        });
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
