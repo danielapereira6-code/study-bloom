@@ -795,3 +795,263 @@ h2 {
     color: #b99adf;
     font-size: 0.9em;
 }
+
+/* ===== BRILHO MÁGICO DO JARDIM ✨ ===== */
+
+.boas-vindas,
+.cartao,
+.progresso,
+.calendario,
+.pomodoro,
+.tarefas {
+    position: relative;
+    isolation: isolate;
+}
+
+.boas-vindas::after,
+.cartao::after,
+.progresso::after,
+.calendario::after,
+.pomodoro::after,
+.tarefas::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #f2c5e5;
+    box-shadow:
+        0 0 10px rgba(217, 154, 203, 0.35),
+        0 0 20px rgba(185, 154, 223, 0.18);
+    pointer-events: none;
+}
+
+/* ===== ABAS QUE FLORESCEM 🌸 ===== */
+
+@keyframes florescerJardim {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aba-conteudo.ativa {
+    animation: florescerJardim 0.35s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aba-conteudo.ativa {
+        animation: none;
+    }
+}
+
+/* ===== MENU FLORIDO 🌷 ===== */
+
+.item-menu {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.item-menu.ativo {
+    background: linear-gradient(
+        135deg,
+        #f9e8f7,
+        #eee3fb
+    );
+    color: #7654a8;
+    box-shadow: 0 3px 12px rgba(130, 91, 157, 0.10);
+}
+
+.item-menu.ativo .icone-menu {
+    filter: drop-shadow(0 2px 3px rgba(185, 154, 223, 0.25));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .item-menu {
+        transition: none;
+    }
+}
+
+/* ===== JARDIM ENCANTADO NO CELULAR 📱 ===== */
+
+@media (max-width: 600px) {
+    .painel {
+        padding: 14px;
+    }
+
+    .boas-vindas,
+    .cartao,
+    .progresso,
+    .calendario,
+    .pomodoro,
+    .tarefas {
+        border-radius: 20px;
+    }
+
+    .boas-vindas h2,
+    .progresso h2,
+    .calendario h2,
+    .pomodoro h2,
+    .tarefas h2 {
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    .menu-inferior {
+        gap: 2px;
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .item-menu {
+        min-width: 0;
+        font-size: 11px;
+    }
+
+    .icone-menu {
+        font-size: 20px;
+    }
+}
+
+/* ===== CAMPOS DE TEXTO ENCANTADOS 🌸 ===== */
+
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+    border: 1px solid #ead7f0;
+    border-radius: 14px;
+    background-color: #fffaff;
+    color: #45405c;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+textarea:focus,
+select:focus {
+    border-color: #c49cdd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(196, 156, 221, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #a99ab4;
+    opacity: 1;
+}
+
+/* ===== TAREFAS CONCLUÍDAS COM CARINHO 🌸 ===== */
+
+#lista-tarefas li:has(input[type="checkbox"]:checked) {
+    background: linear-gradient(135deg, #f9f0fa, #f5edff);
+    border-color: #e4d1ed;
+}
+
+#lista-tarefas li:has(input[type="checkbox"]:checked) label {
+    color: #95869f;
+    text-decoration: line-through;
+    text-decoration-color: #c6a7d9;
+    text-decoration-thickness: 1.5px;
+}
+
+/* ===== BOTÕES DO JARDIM ENCANTADO 🌷 ===== */
+
+button:not(.item-menu) {
+    box-shadow: 0 3px 10px rgba(130, 91, 157, 0.08);
+}
+
+button:not(.item-menu):hover {
+    box-shadow: 0 5px 14px rgba(130, 91, 157, 0.14);
+}
+
+button:focus-visible {
+    outline: 3px solid #d9b8e8;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+}
+
+/* ===== BOTÕES DO JARDIM ENCANTADO 🌷 ===== */
+
+button:not(.item-menu) {
+    box-shadow: 0 3px 10px rgba(130, 91, 157, 0.08);
+}
+
+button:not(.item-menu):hover {
+    box-shadow: 0 5px 14px rgba(130, 91, 157, 0.14);
+}
+
+button:focus-visible {
+    outline: 3px solid #d9b8e8;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+}
+
+/* ===== CONFORTO NO JARDIM 🌷 ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== JARDIM ENCANTADO NO NOTEBOOK 💻 ===== */
+
+@media (min-width: 700px) {
+    .painel {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .boas-vindas,
+    .cartao,
+    .progresso,
+    .calendario,
+    .pomodoro,
+    .tarefas {
+        margin-bottom: 22px;
+    }
+}
+
+/* ===== TEXTINHOS DELICADOS 🌷 ===== */
+
+p {
+    line-height: 1.65;
+}
+
+small,
+.legenda,
+.descricao {
+    color: #8f829b;
+    line-height: 1.5;
+}
+
+::selection {
+    background: #ead5f5;
+    color: #514064;
+}
