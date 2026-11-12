@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
 /* Cores e visual do Study Bloom */
 
 
@@ -1406,5 +1406,435 @@ a.item-menu {
 
     #salvar-anotacao {
         max-width: 100%;
+    }
+}
+
+/* =========================================
+   STUDY BLOOM — NOVA IDENTIDADE VISUAL
+   ========================================= */
+
+:root {
+    --bloom-fundo: #fff8f5;
+    --bloom-branco: #fffdfb;
+    --bloom-rosa: #f5dce8;
+    --bloom-lavanda: #eee3f4;
+    --bloom-orquidea: #c99bcb;
+    --bloom-malva: #85658e;
+    --bloom-texto: #514052;
+    --bloom-suave: #927e91;
+    --bloom-borda: #eedde8;
+    --bloom-sombra: 0 8px 26px rgba(117, 79, 112, 0.08);
+}
+
+/* Fundo e tipografia */
+
+body {
+    background:
+        radial-gradient(ellipse at 10% 5%, #f8eafa 0, transparent 35%),
+        radial-gradient(ellipse at 90% 20%, #fde8ef 0, transparent 32%),
+        var(--bloom-fundo);
+    color: var(--bloom-texto);
+    font-family: 'Nunito', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0;
+}
+
+h2 {
+    color: var(--bloom-malva);
+    font-size: 29px;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+p {
+    color: var(--bloom-suave);
+}
+
+/* Cabeçalho */
+
+.topo {
+    background: linear-gradient(110deg, #edddfa, #fbe0ec);
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(220, 190, 220, 0.4);
+}
+
+.logo-bloom {
+    max-width: 650px;
+    max-height: 175px;
+}
+
+/* Área principal */
+
+.painel {
+    width: min(92%, 1050px);
+    max-width: 1050px;
+    margin: 34px auto;
+}
+
+/* Cartões padronizados */
+
+.boas-vindas,
+.cartao,
+.progresso,
+.calendario,
+.pomodoro,
+.tarefas,
+.caderno-digital,
+.jardim-conquistas {
+    background: rgba(255, 253, 251, 0.94);
+    border: 1px solid var(--bloom-borda);
+    border-radius: 23px;
+    box-shadow: var(--bloom-sombra);
+    box-sizing: border-box;
+}
+
+/* Remove o pontinho decorativo antigo */
+
+.boas-vindas::after,
+.cartao::after,
+.progresso::after,
+.calendario::after,
+.pomodoro::after,
+.tarefas::after {
+    display: none;
+}
+
+/* Boas-vindas */
+
+.boas-vindas {
+    padding: 30px 22px;
+    margin-bottom: 22px;
+}
+
+.boas-vindas h2 {
+    font-size: 34px;
+    margin-bottom: 8px;
+}
+
+.boas-vindas p {
+    margin: 0;
+    font-size: 15px;
+}
+
+/* Resumo */
+
+.resumo {
+    gap: 17px;
+    margin-bottom: 24px;
+}
+
+.cartao {
+    padding: 24px 15px;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cartao:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(117, 79, 112, 0.13);
+}
+
+.cartao span {
+    display: block;
+    color: var(--bloom-orquidea);
+    font-size: 27px;
+    line-height: 1.3;
+}
+
+.cartao h3 {
+    color: var(--bloom-malva);
+    font-family: 'Nunito', sans-serif;
+    font-size: 30px;
+    margin: 12px 0 4px;
+}
+
+.cartao p {
+    font-size: 13px;
+    margin: 0;
+}
+
+/* Progresso */
+
+.progresso,
+.calendario,
+.pomodoro,
+.tarefas,
+.caderno-digital {
+    padding: 27px;
+    margin: 24px 0;
+}
+
+.progresso h2,
+.calendario h2,
+.pomodoro h2,
+.tarefas h2,
+.caderno-digital h2 {
+    margin-top: 0;
+}
+
+#texto-progresso {
+    color: var(--bloom-malva);
+    font-weight: 800;
+}
+
+.barra-fundo {
+    height: 15px;
+    background: #f0e6f1;
+    border-radius: 30px;
+}
+
+#barra-progresso {
+    background: linear-gradient(90deg, #e6b4d0, #b99bd0);
+}
+
+/* Jardim de conquistas */
+
+.jardim-conquistas {
+    width: 100%;
+    max-width: none;
+    padding: 25px;
+    margin: 24px 0;
+    background: linear-gradient(145deg, #fffafc, #f7effb);
+    animation: none;
+}
+
+.jardim-conquistas h2 {
+    font-size: 28px;
+}
+
+.imagem-jardim {
+    outline: none !important;
+    max-width: 230px;
+    height: 145px;
+    animation: florFlutua 3s ease-in-out infinite;
+}
+
+@keyframes florFlutua {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Calendário */
+
+.calendario {
+    background: var(--bloom-branco);
+}
+
+.dias-semana span {
+    color: var(--bloom-malva);
+}
+
+.dias-calendario button {
+    border-color: var(--bloom-borda);
+    background: #fffafc;
+    color: var(--bloom-texto);
+}
+
+.dias-calendario button.selecionado {
+    background: linear-gradient(135deg, #d7b7df, #e9bfd3) !important;
+    border: 1px solid #c99bcb !important;
+    color: white;
+}
+
+.dias-calendario button.tem-estudo {
+    position: relative;
+}
+
+.dias-calendario button.tem-estudo::after {
+    content: "·";
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    color: var(--bloom-orquidea);
+    font-size: 20px;
+}
+
+/* Pomodoro */
+
+.pomodoro {
+    background: linear-gradient(145deg, #fffdfb, #f8effa);
+}
+
+#cronometro {
+    color: var(--bloom-malva);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 68px;
+}
+
+/* Tarefas */
+
+.tarefas {
+    background: var(--bloom-branco);
+}
+
+#lista-tarefas li {
+    background: #fff9fc;
+    border: 1px solid var(--bloom-borda);
+    border-radius: 16px;
+}
+
+/* Caderno digital */
+
+.caderno-digital {
+    text-align: left;
+}
+
+.caderno-digital > p {
+    padding: 0;
+}
+
+.nova-anotacao {
+    margin-top: 20px;
+}
+
+#titulo-anotacao,
+#materia-anotacao,
+#conteudo-anotacao {
+    background: #fffafd;
+    border: 1px solid var(--bloom-borda);
+    border-radius: 14px;
+    color: var(--bloom-texto);
+}
+
+#salvar-anotacao {
+    background: linear-gradient(120deg, #d9b5d8, #c5addf);
+}
+
+/* Botões gerais */
+
+button {
+    background: linear-gradient(120deg, #e9bfd4, #d1b8df);
+    color: #634b68;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(130, 91, 157, 0.08);
+}
+
+button:hover {
+    background: linear-gradient(120deg, #dfadca, #c3a5d7);
+    transform: translateY(-2px);
+}
+
+/* Menu inferior */
+
+.menu-inferior {
+    background: rgba(255, 251, 253, 0.96);
+    border: 1px solid var(--bloom-borda);
+    box-shadow: 0 -5px 22px rgba(117, 79, 112, 0.08);
+    backdrop-filter: blur(14px);
+}
+
+.item-menu {
+    color: #a28da2;
+    border-radius: 15px;
+}
+
+.item-menu:hover {
+    background: #fbf0f7;
+    color: var(--bloom-malva);
+}
+
+.item-menu.ativo {
+    background: linear-gradient(135deg, #f7e8f3, #eee6f7);
+    color: var(--bloom-malva);
+    box-shadow: none;
+}
+
+.icone-menu {
+    font-size: 22px;
+}
+
+/* Ornamentos dos títulos */
+
+.boas-vindas h2::before,
+.progresso h2::before,
+.calendario h2::before,
+.pomodoro h2::before,
+.tarefas h2::before,
+.caderno-digital h2::before,
+.jardim-conquistas h2::before {
+    content: "✿ ";
+    color: var(--bloom-orquidea);
+    font-family: 'Nunito', sans-serif;
+    font-size: .7em;
+}
+
+.boas-vindas h2::after,
+.progresso h2::after,
+.calendario h2::after,
+.pomodoro h2::after,
+.tarefas h2::after,
+.caderno-digital h2::after,
+.jardim-conquistas h2::after {
+    content: " ✿";
+    color: #dcaacb;
+    font-family: 'Nunito', sans-serif;
+    font-size: .7em;
+}
+
+/* Rodapé */
+
+footer {
+    color: var(--bloom-suave);
+    font-size: 13px;
+}
+
+/* Acessibilidade e celular */
+
+@media (max-width: 600px) {
+    .painel {
+        width: 92%;
+        margin: 22px auto;
+        padding: 0;
+    }
+
+    .resumo {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 9px;
+    }
+
+    .cartao {
+        padding: 17px 7px;
+    }
+
+    .cartao h3 {
+        font-size: 25px;
+    }
+
+    .cartao p {
+        font-size: 11px;
+    }
+
+    .progresso,
+    .calendario,
+    .pomodoro,
+    .tarefas,
+    .caderno-digital,
+    .jardim-conquistas {
+        padding: 19px 15px;
+    }
+
+    .boas-vindas h2 {
+        font-size: 29px;
+    }
+
+    #cronometro {
+        font-size: 58px;
+    }
+
+    .menu-inferior {
+        gap: 1px;
+    }
+
+    .item-menu {
+        font-size: 10px;
+        padding: 8px 1px;
+    }
+
+    .icone-menu {
+        font-size: 19px;
     }
 }
