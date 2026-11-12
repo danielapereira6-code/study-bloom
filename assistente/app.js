@@ -13,8 +13,10 @@ function adicionarMensagem(texto, tipo) {
   const mensagem = document.createElement("div");
   mensagem.className = `mensagem ${tipo}`;
   mensagem.textContent = texto;
+
   mensagens.appendChild(mensagem);
   scroller.scrollTop = scroller.scrollHeight;
+
   return mensagem;
 }
 
@@ -27,21 +29,34 @@ async function enviarPergunta(texto) {
 
   if (!pergunta || botaoEnviar.disabled) return;
 
+  if (typeof puter === "undefined" || !puter.ai) {
+    adicionarMensagem(
+      "Não foi possível carregar a inteligência artificial. Atualize a página e tente novamente. 🌷",
+      "erro"
+    );
+    return;
+  }
+
   mostrarBoasVindas(false);
+
   adicionarMensagem(pergunta, "usuario");
-  conversa.push({ role: "user", content: pergunta });
+
+  conversa.push({
+    role: "user",
+    content: pergunta
+  });
 
   campoPergunta.value = "";
   campoPergunta.style.height = "auto";
   botaoEnviar.disabled = true;
 
   const carregando = adicionarMensagem(
-    "A preparar uma resposta para ti... 🌷",
+    "Estou preparando uma resposta para você... 🌷",
     "ia"
   );
 
   try {
-    const resposta = await puter.ai.chat(pergunta);
+    const resposta = await puter.ai.chat(conversa);
 
     let conteudo = "";
 
@@ -59,17 +74,27 @@ async function enviarPergunta(texto) {
     }
 
     if (!conteudo) {
-      conteudo = "Não consegui apresentar a resposta. Podes tentar novamente? 🌷";
+      throw new Error("A IA retornou uma resposta vazia.");
     }
 
     carregando.textContent = conteudo;
-    conversa.push({ role: "assistant", content: conteudo });
+
+    conversa.push({
+      role: "assistant",
+      content: conteudo
+    });
+
   } catch (erro) {
     carregando.textContent =
-      "Não consegui responder agora. Verifica a tua ligação à internet e, se necessário, inicia sessão no Puter. Depois, tenta novamente. 🌷";
+      "Não consegui responder agora. Verifique sua conexão e tente novamente. 🌷";
 
     carregando.classList.add("erro");
+
+    // Remove a pergunta que falhou do histórico.
+    conversa.pop();
+
     console.error("Erro no assistente:", erro);
+
   } finally {
     botaoEnviar.disabled = false;
     campoPergunta.focus();
@@ -84,6 +109,7 @@ formulario.addEventListener("submit", async (evento) => {
 
 campoPergunta.addEventListener("input", () => {
   campoPergunta.style.height = "auto";
+
   campoPergunta.style.height =
     Math.min(campoPergunta.scrollHeight, 120) + "px";
 });
@@ -103,10 +129,14 @@ document.querySelectorAll(".sugestao").forEach((botao) => {
 
 botaoNovoChat.addEventListener("click", () => {
   mensagens.replaceChildren();
+
   conversa = [];
+
   mostrarBoasVindas(true);
+
   campoPergunta.value = "";
   campoPergunta.style.height = "auto";
+
   scroller.scrollTop = 0;
   campoPergunta.focus();
 });
