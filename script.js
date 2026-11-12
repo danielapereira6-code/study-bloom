@@ -475,3 +475,98 @@ function atualizarJardim() {
     mensagem.textContent = descricao;
 }
 
+
+/* ==================================
+   CADERNO DIGITAL STUDY BLOOM 🌷
+================================== */
+
+// Recuperar anotações salvas
+let anotacoes = JSON.parse(
+    localStorage.getItem("studyBloomAnotacoes")
+) || [];
+
+// Elementos do HTML
+const tituloAnotacao = document.getElementById("titulo-anotacao");
+const materiaAnotacao = document.getElementById("materia-anotacao");
+const conteudoAnotacao = document.getElementById("conteudo-anotacao");
+const botaoSalvarAnotacao = document.getElementById("salvar-anotacao");
+const listaAnotacoes = document.getElementById("lista-anotacoes");
+
+// Salvar anotações no navegador
+function salvarNoNavegador() {
+    localStorage.setItem(
+        "studyBloomAnotacoes",
+        JSON.stringify(anotacoes)
+    );
+}
+
+// Mostrar as anotações na tela
+function mostrarAnotacoes() {
+
+    listaAnotacoes.innerHTML = "";
+
+    if (anotacoes.length === 0) {
+        listaAnotacoes.innerHTML = `
+            <p class="mensagem-vazia">
+                Seu caderninho está esperando suas primeiras anotações! 💗
+            </p>
+        `;
+        return;
+    }
+
+    anotacoes.forEach(function(anotacao) {
+
+        const cartao = document.createElement("div");
+        cartao.className = "cartao-anotacao";
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = anotacao.titulo;
+
+        const materia = document.createElement("p");
+        materia.textContent = "📚 " + anotacao.materia;
+
+        const conteudo = document.createElement("p");
+        conteudo.textContent = anotacao.conteudo;
+
+        cartao.appendChild(titulo);
+        cartao.appendChild(materia);
+        cartao.appendChild(conteudo);
+
+        listaAnotacoes.appendChild(cartao);
+    });
+}
+
+// Criar uma nova anotação
+botaoSalvarAnotacao.addEventListener("click", function() {
+
+    const titulo = tituloAnotacao.value.trim();
+    const materia = materiaAnotacao.value;
+    const conteudo = conteudoAnotacao.value.trim();
+
+    if (!titulo || !materia || !conteudo) {
+        alert("Preencha o título, a matéria e o conteúdo! 🌸");
+        return;
+    }
+
+    const novaAnotacao = {
+        id: Date.now(),
+        titulo: titulo,
+        materia: materia,
+        conteudo: conteudo
+    };
+
+    anotacoes.push(novaAnotacao);
+
+    salvarNoNavegador();
+    mostrarAnotacoes();
+
+    tituloAnotacao.value = "";
+    materiaAnotacao.value = "";
+    conteudoAnotacao.value = "";
+
+    alert("Anotação salva com carinho! 💗");
+
+});
+
+// Mostrar anotações ao abrir o site
+mostrarAnotacoes();
