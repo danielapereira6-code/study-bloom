@@ -1838,3 +1838,38 @@ footer {
         font-size: 19px;
     }
 }
+
+/* ÍCONES AUTORAIS STUDY BLOOM */
+
+.icone-bloom {
+    width: 27px;
+    height: 27px;
+    display: block;
+    color: #A77FAE;
+    flex-shrink: 0;
+    overflow: visible;
+}
+
+.item-menu .icone-bloom {
+    width: 25px;
+    height: 25px;
+    color: #A77FAE;
+}
+
+.item-menu.ativo .icone-bloom {
+    color: #986C9F;
+}
+
+.cartao .icone-bloom {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto;
+    color: #B77DA7;
+}
+
+.titulo-com-icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
