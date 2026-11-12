@@ -1243,3 +1243,168 @@ a.item-menu {
     box-sizing: border-box;
     cursor: pointer;
 }
+
+/* ==========================================
+   CADERNO DIGITAL STUDY BLOOM 🌷
+========================================== */
+
+/* Área principal do caderno */
+#titulo-anotacao,
+#materia-anotacao,
+#conteudo-anotacao {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 12px 0;
+    padding: 14px 16px;
+    border: 1px solid #ead7f0;
+    border-radius: 14px;
+    background: #fffaff;
+    color: #45405c;
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+}
+
+/* Campo de conteúdo */
+#conteudo-anotacao {
+    min-height: 160px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+/* Foco nos campos */
+#titulo-anotacao:focus,
+#materia-anotacao:focus,
+#conteudo-anotacao:focus {
+    outline: none;
+    border-color: #c49cdd;
+    box-shadow: 0 0 0 3px rgba(196, 156, 221, 0.18);
+}
+
+/* Botão salvar anotação */
+#salvar-anotacao {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 18px auto 30px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e9b5d7, #c5a5e8);
+    color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 5px 14px rgba(130, 91, 157, 0.12);
+    transition: 0.25s ease;
+}
+
+#salvar-anotacao:hover {
+    background: linear-gradient(135deg, #dc98c5, #b58ad9);
+    transform: translateY(-2px);
+}
+
+/* Lista de anotações */
+#lista-anotacoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin: 25px 0;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Cartões individuais */
+.cartao-anotacao {
+    position: relative;
+    padding: 22px;
+    box-sizing: border-box;
+    border: 1px solid #efd8ef;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #fff5fb);
+    box-shadow: 0 6px 18px rgba(130, 91, 157, 0.09);
+    transition: 0.25s ease;
+    overflow-wrap: anywhere;
+}
+
+.cartao-anotacao:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(130, 91, 157, 0.15);
+    border-color: #d9b8e8;
+}
+
+/* Pequeno detalhe decorativo */
+.cartao-anotacao::before {
+    content: "✿";
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #d99acb;
+    font-size: 20px;
+}
+
+/* Título da anotação */
+.cartao-anotacao h3 {
+    margin: 0 25px 12px 0;
+    color: #7654a8;
+    font-size: 19px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+/* Matéria */
+.cartao-anotacao p:first-of-type {
+    display: inline-block;
+    margin: 0 0 14px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #f4e8fa;
+    color: #9069ac;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Conteúdo da anotação */
+.cartao-anotacao p:last-of-type {
+    margin: 0;
+    padding: 0;
+    color: #62566e;
+    font-size: 14px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Mensagem quando não existem anotações */
+#lista-anotacoes .mensagem-vazia {
+    grid-column: 1 / -1;
+    padding: 25px 15px;
+    border: 1px dashed #d9b8e8;
+    border-radius: 18px;
+    background: #fff8fc;
+    color: #a18baa;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    #lista-anotacoes {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .cartao-anotacao {
+        padding: 19px;
+    }
+
+    #conteudo-anotacao {
+        min-height: 140px;
+    }
+
+    #salvar-anotacao {
+        max-width: 100%;
+    }
+}
