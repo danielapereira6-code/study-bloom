@@ -24,11 +24,70 @@ function mostrarBoasVindas(mostrar) {
   boasVindas.hidden = !mostrar;
 }
 
-
 async function enviarPergunta(texto) {
   const pergunta = texto.trim();
 
   if (!pergunta || botaoEnviar.disabled) return;
+
+  mostrarBoasVindas(false);
+  adicionarMensagem(pergunta, "usuario");
+
+  conversa.push({
+    role: "user",
+    content: pergunta
+  });
+
+  campoPergunta.value = "";
+  campoPergunta.style.height = "auto";
+  botaoEnviar.disabled = true;
+
+  const carregando = adicionarMensagem(
+    "Estou preparando uma resposta para você... 🌷",
+    "ia"
+  );
+
+  try {
+    const resposta = await fetch(
+      "https://study-bloom-api.daniela-pereira6.workers.dev",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          messages: conversa
+        })
+      }
+    );
+
+    const dados = await resposta.json();
+
+    if (!resposta.ok) {
+      throw new Error(dados.error || "Erro na conexão com a IA.");
+    }
+
+    carregando.textContent = dados.answer;
+
+    conversa.push({
+      role: "assistant",
+      content: dados.answer
+    });
+
+  } catch (erro) {
+    carregando.textContent =
+      "Não consegui responder agora. Tente novamente! 🌷";
+
+    carregando.classList.add("erro");
+    conversa.pop();
+
+    console.error("Erro no Study Bloom:", erro);
+
+  } finally {
+    botaoEnviar.disabled = false;
+    campoPergunta.focus();
+    scroller.scrollTop = scroller.scrollHeight;
+  }
+}
 
 formulario.addEventListener("submit", async (evento) => {
   evento.preventDefault();
