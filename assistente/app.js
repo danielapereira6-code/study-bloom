@@ -55,7 +55,7 @@ async function enviarPergunta(texto) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          messages: conversa
+          messages: conversa.slice(-12)
         })
       }
     );
