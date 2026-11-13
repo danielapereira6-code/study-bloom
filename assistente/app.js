@@ -12,7 +12,15 @@ let conversa = [];
 function adicionarMensagem(texto, tipo) {
   const mensagem = document.createElement("div");
   mensagem.className = `mensagem ${tipo}`;
-  mensagem.textContent = texto;
+
+  if (tipo === "ia") {
+    mensagem.classList.add("resposta-formatada");
+
+    const html = marked.parse(texto);
+    mensagem.innerHTML = DOMPurify.sanitize(html);
+  } else {
+    mensagem.textContent = texto;
+  }
 
   mensagens.appendChild(mensagem);
   scroller.scrollTop = scroller.scrollHeight;
