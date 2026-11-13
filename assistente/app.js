@@ -74,7 +74,7 @@ async function enviarPergunta(texto) {
       throw new Error(dados.error || "Erro na conexão com a IA.");
     }
 
-    carregando.textContent = dados.answer;
+   carregando.innerHTML = DOMPurify.sanitize(marked.parse(dados.answer));
 
     conversa.push({
       role: "assistant",
