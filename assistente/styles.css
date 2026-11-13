@@ -468,3 +468,132 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Formatação das respostas da IA */
+.mensagem.ia.resposta-formatada {
+  white-space: normal;
+  line-height: 1.8;
+}
+
+/* Parágrafos */
+.resposta-formatada p {
+  margin: 0 0 14px;
+}
+
+.resposta-formatada p:last-child {
+  margin-bottom: 0;
+}
+
+/* Títulos */
+.resposta-formatada h1,
+.resposta-formatada h2,
+.resposta-formatada h3,
+.resposta-formatada h4 {
+  color: var(--rosa-700);
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.35;
+  margin: 22px 0 10px;
+}
+
+.resposta-formatada h1 {
+  font-size: 24px;
+}
+
+.resposta-formatada h2 {
+  font-size: 21px;
+}
+
+.resposta-formatada h3 {
+  font-size: 19px;
+}
+
+.resposta-formatada h4 {
+  font-size: 17px;
+}
+
+/* Negrito */
+.resposta-formatada strong {
+  color: var(--rosa-700);
+  font-weight: 800;
+}
+
+/* Listas */
+.resposta-formatada ul,
+.resposta-formatada ol {
+  margin: 10px 0 16px;
+  padding-left: 25px;
+}
+
+.resposta-formatada li {
+  margin-bottom: 7px;
+  padding-left: 3px;
+}
+
+/* Links */
+.resposta-formatada a {
+  color: var(--lilas-600);
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+/* Separadores */
+.resposta-formatada hr {
+  border: 0;
+  border-top: 1px solid var(--rosa-200);
+  margin: 20px 0;
+}
+
+/* Citações */
+.resposta-formatada blockquote {
+  margin: 14px 0;
+  padding: 10px 15px;
+  border-left: 3px solid var(--lilas-200);
+  border-radius: 0 12px 12px 0;
+  background: var(--rosa-50);
+  color: var(--texto-suave);
+}
+
+/* Fórmulas e códigos */
+.resposta-formatada code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--lilas-100);
+  color: var(--lilas-600);
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.resposta-formatada pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 14px;
+  border-radius: 12px;
+  background: #f7f2fb;
+}
+
+.resposta-formatada pre code {
+  padding: 0;
+  background: transparent;
+}
+
+/* Tabelas */
+.resposta-formatada table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 13px;
+}
+
+.resposta-formatada th,
+.resposta-formatada td {
+  padding: 9px 12px;
+  border: 1px solid var(--rosa-200);
+  text-align: left;
+}
+
+.resposta-formatada th {
+  color: var(--rosa-700);
+  background: var(--rosa-100);
+}
