@@ -1873,3 +1873,147 @@ footer {
     align-items: center;
     gap: 10px;
 }
+/* =================================
+   STUDY BLOOM - PÁGINA DE CONTA
+================================= */
+
+.pagina-conta {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #fff4fa, #f3edff);
+    font-family: 'Nunito', sans-serif;
+}
+
+.container-conta {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    box-sizing: border-box;
+}
+
+.voltar-inicio {
+    align-self: flex-start;
+    max-width: 420px;
+    width: 100%;
+    margin: 0 auto 20px;
+    color: #a65b91;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.cartao-conta {
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    padding: 38px 32px;
+    background: #ffffff;
+    border: 1px solid #f3dce9;
+    border-radius: 25px;
+    box-shadow: 0 12px 35px rgba(170, 115, 160, 0.12);
+    text-align: center;
+}
+
+.cartao-conta h1 {
+    color: #b9659a;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.subtitulo-conta {
+    color: #a58bb8;
+    margin-bottom: 30px;
+}
+
+.cartao-conta h2 {
+    color: #59475f;
+    font-size: 1.4rem;
+}
+
+.cartao-conta > p {
+    color: #897c8d;
+    font-size: 0.95rem;
+}
+
+#form-login {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+#form-login label {
+    color: #66546d;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+#form-login input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    border: 1px solid #ead9e8;
+    border-radius: 12px;
+    background: #fffbfe;
+    color: #59475f;
+    font: inherit;
+    outline: none;
+}
+
+#form-login input:focus {
+    border-color: #c47eae;
+    box-shadow: 0 0 0 3px rgba(196, 126, 174, 0.12);
+}
+
+#form-login button {
+    margin-top: 12px;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: #b9659a;
+    color: white;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#form-login button:hover {
+    background: #a65388;
+    transform: translateY(-2px);
+}
+
+#mostrar-cadastro {
+    color: #b9659a;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.separador-conta {
+    margin: 22px 0;
+    color: #b7a8b9;
+}
+
+.continuar-sem-conta {
+    display: block;
+    padding: 13px;
+    border: 1px solid #e8d6e9;
+    border-radius: 12px;
+    color: #92749d;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.continuar-sem-conta:hover {
+    background: #faf4fc;
+}
+
+@media (max-width: 480px) {
+    .cartao-conta {
+        padding: 30px 22px;
+    }
+}
