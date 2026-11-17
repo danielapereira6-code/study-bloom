@@ -3,54 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff8f5">
     <title>Minha conta | Study Bloom</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="pagina-conta">
 
-    <main class="container-conta">
+    <main class="conta-layout">
 
-        <a href="index.html" class="voltar-inicio">
+        <a href="index.html" class="conta-voltar">
             ♡ Voltar ao Study Bloom
         </a>
 
-        <section class="cartao-conta">
+        <section class="conta-apresentacao">
 
-            <h1>Study Bloom</h1>
+            <img
+                src="C63B5242-986A-4EAE-A647-ECEAA6ABEFCC.png"
+                alt="Study Bloom"
+                class="logo-conta"
+            >
 
-            <p class="subtitulo-conta">
-                Floresça no seu tempo. 🌷
-            </p>
+            <span class="conta-etiqueta">
+                SEU ESPAÇO, DO SEU JEITO
+            </span>
 
-            <h2>Bem-vinda de volta!</h2>
+            <h2>Seus estudos florescem por aqui.</h2>
 
             <p>
-                Entre na sua conta para manter seus estudos salvos.
+                Organize sua rotina, acompanhe suas tarefas e
+                transforme seus objetivos em pequenas conquistas.
+            </p>
+
+            <div class="conta-beneficios">
+                <div class="conta-beneficio">
+                    <span>♡</span>
+                    <p>Seus estudos organizados</p>
+                </div>
+
+                <div class="conta-beneficio">
+                    <span>✿</span>
+                    <p>Seu progresso acompanhado</p>
+                </div>
+
+                <div class="conta-beneficio">
+                    <span>୨ৎ</span>
+                    <p>Seu próprio ritmo</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="conta-cartao">
+
+            <div class="conta-card-detalhe">♡</div>
+
+            <span class="conta-etiqueta">
+                QUE BOM TER VOCÊ AQUI
+            </span>
+
+            <h1>Boas-vindas de volta!</h1>
+
+            <p class="conta-descricao">
+                Entre na sua conta e continue de onde parou.
             </p>
 
             <form id="form-login">
-                <label for="email-login">E-mail</label>
-                <input type="email" id="email-login"
-                    placeholder="Seu e-mail" required>
 
-                <label for="senha-login">Senha</label>
-                <input type="password" id="senha-login"
-                    placeholder="Sua senha" required>
+                <label for="email-login">Seu e-mail</label>
+                <input
+                    type="email"
+                    id="email-login"
+                    placeholder="exemplo@email.com"
+                    required
+                >
 
-                <button type="submit">Entrar ♡</button>
+                <label for="senha-login">Sua senha</label>
+                <input
+                    type="password"
+                    id="senha-login"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+                <a href="#" id="recuperar-senha">
+                    Esqueceu sua senha?
+                </a>
+
+                <button type="submit">
+                    Entrar na minha conta ♡
+                </button>
+
             </form>
 
-            <p>
-                Ainda não tem conta?
+            <p class="conta-cadastro">
+                Ainda não tem uma conta?
                 <a href="#" id="mostrar-cadastro">Criar conta</a>
             </p>
 
-            <div class="separador-conta">ou</div>
+            <div class="conta-divisor">
+                <span>ou</span>
+            </div>
 
-            <a href="index.html" class="continuar-sem-conta">
+            <a href="index.html" class="conta-convidado">
                 Continuar sem conta
             </a>
+
+            <small>
+                Você pode aproveitar o Study Bloom mesmo sem criar uma conta.
+            </small>
 
         </section>
 
