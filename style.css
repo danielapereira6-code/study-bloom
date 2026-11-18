@@ -1873,117 +1873,247 @@ footer {
     align-items: center;
     gap: 10px;
 }
-/* =================================
-   STUDY BLOOM - PÁGINA DE CONTA
-================================= */
+
+/* =========================================
+   STUDY BLOOM — PÁGINA DE CONTA
+========================================= */
 
 .pagina-conta {
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #fff4fa, #f3edff);
+    background:
+        radial-gradient(ellipse at 12% 15%, #f5e8f3 0, transparent 35%),
+        radial-gradient(ellipse at 88% 85%, #f8e5ed 0, transparent 35%),
+        var(--bloom-fundo);
+    color: var(--bloom-texto);
     font-family: 'Nunito', sans-serif;
 }
 
-.container-conta {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+.conta-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 430px;
     align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
+    gap: 85px;
+    width: min(1100px, calc(100% - 60px));
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 75px 0;
     box-sizing: border-box;
 }
 
-.voltar-inicio {
-    align-self: flex-start;
-    max-width: 420px;
-    width: 100%;
-    margin: 0 auto 20px;
-    color: #a65b91;
+.conta-voltar {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    color: var(--bloom-malva);
+    font-size: 0.9rem;
+    font-weight: 800;
     text-decoration: none;
+    transition: 0.2s;
+}
+
+.conta-voltar:hover {
+    color: var(--bloom-orquidea);
+    transform: translateX(-3px);
+}
+
+/* APRESENTAÇÃO */
+
+.conta-apresentacao {
+    max-width: 490px;
+}
+
+.logo-conta {
+    display: block;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    max-height: 150px;
+    object-fit: contain;
+    object-position: left center;
+    margin-bottom: 48px;
+}
+
+.conta-etiqueta {
+    display: inline-block;
+    color: var(--bloom-orquidea);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.conta-apresentacao h2 {
+    margin: 17px 0;
+    color: var(--bloom-texto);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.7rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+}
+
+.conta-apresentacao > p {
+    max-width: 410px;
+    color: var(--bloom-suave);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.conta-beneficios {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 38px;
+}
+
+.conta-beneficio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.conta-beneficio span {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 13px;
+    background: var(--bloom-lavanda);
+    color: var(--bloom-malva);
+    font-size: 1.2rem;
+}
+
+.conta-beneficio:nth-child(2) span {
+    background: var(--bloom-rosa);
+}
+
+.conta-beneficio:nth-child(3) span {
+    background: #f7e9df;
+}
+
+.conta-beneficio p {
+    margin: 0;
+    color: var(--bloom-suave);
+    font-size: 0.9rem;
     font-weight: 700;
 }
 
-.cartao-conta {
+/* CARTÃO DE LOGIN */
+
+.conta-cartao {
+    position: relative;
     width: 100%;
-    max-width: 420px;
     box-sizing: border-box;
-    padding: 38px 32px;
-    background: #ffffff;
-    border: 1px solid #f3dce9;
-    border-radius: 25px;
-    box-shadow: 0 12px 35px rgba(170, 115, 160, 0.12);
-    text-align: center;
+    padding: 43px 38px;
+    overflow: hidden;
+    border: 1px solid rgba(201, 155, 203, 0.25);
+    border-radius: 28px;
+    background: rgba(255, 253, 251, 0.94);
+    box-shadow: 0 18px 55px rgba(117, 79, 112, 0.10);
 }
 
-.cartao-conta h1 {
-    color: #b9659a;
+.conta-card-detalhe {
+    position: absolute;
+    top: 19px;
+    right: 25px;
+    color: #e9cfe2;
     font-size: 2rem;
-    margin-bottom: 5px;
 }
 
-.subtitulo-conta {
-    color: #a58bb8;
-    margin-bottom: 30px;
+.conta-cartao h1 {
+    margin: 12px 0 8px;
+    color: var(--bloom-texto);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.1;
 }
 
-.cartao-conta h2 {
-    color: #59475f;
-    font-size: 1.4rem;
+.conta-descricao {
+    margin: 0 0 28px;
+    color: var(--bloom-suave);
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
-.cartao-conta > p {
-    color: #897c8d;
-    font-size: 0.95rem;
-}
+/* FORMULÁRIO */
 
 #form-login {
     display: flex;
     flex-direction: column;
-    text-align: left;
     gap: 10px;
-    margin-top: 25px;
 }
 
 #form-login label {
-    color: #66546d;
-    font-weight: 700;
-    font-size: 0.9rem;
+    margin-top: 8px;
+    color: var(--bloom-texto);
+    font-size: 0.85rem;
+    font-weight: 800;
 }
 
 #form-login input {
     width: 100%;
     box-sizing: border-box;
-    padding: 14px;
-    border: 1px solid #ead9e8;
+    padding: 14px 15px;
+    border: 1px solid var(--bloom-borda);
     border-radius: 12px;
-    background: #fffbfe;
-    color: #59475f;
-    font: inherit;
     outline: none;
+    background: #fffafc;
+    color: var(--bloom-texto);
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.9rem;
+    transition: 0.2s;
+}
+
+#form-login input::placeholder {
+    color: #b9aab8;
 }
 
 #form-login input:focus {
-    border-color: #c47eae;
-    box-shadow: 0 0 0 3px rgba(196, 126, 174, 0.12);
+    border-color: var(--bloom-orquidea);
+    box-shadow: 0 0 0 3px rgba(201, 155, 203, 0.15);
+}
+
+#recuperar-senha {
+    align-self: flex-end;
+    margin-top: 2px;
+    color: var(--bloom-malva);
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+#recuperar-senha:hover,
+#mostrar-cadastro:hover {
+    text-decoration: underline;
 }
 
 #form-login button {
-    margin-top: 12px;
-    padding: 14px;
+    margin-top: 14px;
+    padding: 15px;
     border: none;
-    border-radius: 12px;
-    background: #b9659a;
+    border-radius: 13px;
+    background: linear-gradient(110deg, #c99bcb, #b9659a);
     color: white;
-    font: inherit;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
     font-weight: 800;
     cursor: pointer;
+    box-shadow: 0 7px 17px rgba(185, 101, 154, 0.18);
     transition: 0.2s;
 }
 
 #form-login button:hover {
-    background: #a65388;
     transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(185, 101, 154, 0.25);
+}
+
+.conta-cadastro {
+    margin: 23px 0;
+    color: var(--bloom-suave);
+    font-size: 0.85rem;
+    text-align: center;
 }
 
 #mostrar-cadastro {
@@ -1992,28 +2122,101 @@ footer {
     text-decoration: none;
 }
 
-.separador-conta {
+.conta-divisor {
+    display: flex;
+    align-items: center;
+    gap: 13px;
     margin: 22px 0;
-    color: #b7a8b9;
+    color: #b9aab8;
+    font-size: 0.8rem;
 }
 
-.continuar-sem-conta {
+.conta-divisor::before,
+.conta-divisor::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--bloom-borda);
+}
+
+.conta-convidado {
     display: block;
     padding: 13px;
-    border: 1px solid #e8d6e9;
+    border: 1px solid var(--bloom-borda);
     border-radius: 12px;
-    color: #92749d;
+    color: var(--bloom-malva);
+    font-size: 0.9rem;
     font-weight: 800;
+    text-align: center;
     text-decoration: none;
     transition: 0.2s;
 }
 
-.continuar-sem-conta:hover {
-    background: #faf4fc;
+.conta-convidado:hover {
+    border-color: var(--bloom-orquidea);
+    background: #fbf5fb;
+}
+
+.conta-cartao small {
+    display: block;
+    margin-top: 14px;
+    color: #a99aa9;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+    .conta-layout {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 35px;
+        max-width: 520px;
+        padding: 85px 0 45px;
+    }
+
+    .conta-apresentacao {
+        text-align: center;
+    }
+
+    .logo-conta {
+        max-width: 300px;
+        max-height: 115px;
+        margin: 0 auto 30px;
+    }
+
+    .conta-apresentacao > p {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .conta-beneficios {
+        display: none;
+    }
+
+    .conta-cartao {
+        max-width: 430px;
+    }
 }
 
 @media (max-width: 480px) {
-    .cartao-conta {
-        padding: 30px 22px;
+    .conta-layout {
+        width: calc(100% - 32px);
+        gap: 25px;
+    }
+
+    .conta-apresentacao h2 {
+        font-size: 2.5rem;
+    }
+
+    .conta-cartao {
+        padding: 35px 24px;
+        border-radius: 23px;
+    }
+
+    .conta-cartao h1 {
+        font-size: 2.2rem;
     }
 }
