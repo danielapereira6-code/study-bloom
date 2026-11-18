@@ -2219,3 +2219,46 @@ footer {
         font-size: 2.2rem;
     }
 }
+/* AJUSTE DE PROPORÇÕES — PÁGINA DE CONTA */
+
+.conta-layout {
+    width: min(1000px, calc(100% - 48px));
+    grid-template-columns: minmax(0, 1fr) 400px;
+    gap: 55px;
+}
+
+.conta-apresentacao {
+    min-width: 0;
+    max-width: 430px;
+}
+
+.conta-cartao {
+    width: 100%;
+    max-width: 400px;
+    justify-self: end;
+}
+
+.conta-apresentacao h2 {
+    max-width: 400px;
+    font-size: 3.2rem;
+}
+
+.conta-apresentacao > p {
+    max-width: 370px;
+}
+
+@media (max-width: 850px) {
+    .conta-layout {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(520px, calc(100% - 32px));
+        gap: 30px;
+    }
+
+    .conta-apresentacao {
+        max-width: 100%;
+    }
+
+    .conta-cartao {
+        justify-self: center;
+    }
+}
