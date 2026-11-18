@@ -2262,3 +2262,12 @@ footer {
         justify-self: center;
     }
 }
+.logo-conta {
+    margin-bottom: 12px;
+}
+.conta-voltar {
+    left: 0;
+    top: 30px;
+    margin-left: 0;
+    transform: none;
+}
